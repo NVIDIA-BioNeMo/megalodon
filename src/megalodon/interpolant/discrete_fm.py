@@ -146,7 +146,6 @@ class DiscreteFlowMatchingInterpolant(Interpolant):
         mask = j < i
         mask_i = i[mask]
         edge_attr_triu = x1[mask]
-        batch = batch[mask_i]
         _, edge_attr_t, upper_probs = self.interpolate(batch[mask_i], edge_attr_triu, time)
         edge_index_global_perturbed, edge_attr_global_perturbed = self.clean_edges(x1_index, edge_attr_t)
         return x1, edge_attr_global_perturbed, _
